@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <link rel="shortcut icon" href="">
+    <link rel="stylesheet" href="form.css">
+
+</head>
+<body>
+    <div class="main">
+        <div class="top">Student Enrollment Form</div>
+        <div class="middle">
+            <div class="mainForm">
+                <form action="" class="enrollment">
+                    <div class="row">
+                        <div class="col1">
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="col2">
+                            <input type="text" id="name" name="name" class="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col1">
+                            <label for="Email">Email</label>
+                        </div>
+                        <div class="col2">
+                            <input type="email" id="Email" name="email">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col1">
+                            <label for="Website">Website</label>
+                        </div>
+                        <div class="col2">
+                            <input type="text" id="Website" name="Website">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col1">
+                            <label for="link">Image Link</label>
+                        </div>
+                        <div class="col2">
+                            <input type="text" id="link" name="link">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col1">
+                            <label for="">Gender</label>
+                        </div>
+                        <div class="col2">
+                            <input type="radio" id="male" name="gender" value="Male">
+                            <label for="male" class="gender ">Male</label><br>
+                            <input type="radio" id="female" name="gender" value="Female">
+                            <label for="female" class="gender ">Female</label><br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col1">
+                            <label for="">Skills</label>
+                        </div>
+                        <div class="col2">
+                            <input type="checkbox" id="Java" name="Skills" value="Java">
+                            <label for="Java">Java</label>
+                            <input type="checkbox" id="HTML" name="Skills" value="HTML">
+                            <label for="HTML">HTML</label>
+                            <input type="checkbox" id="CSS" name="Skills" value="CSS">
+                            <label for="CSS">CSS</label>  <br>
+                        </div>
+                    </div>
+                    <button class="enroll" type="submit">Enroll Student</button>
+                    <button class="clear" onclick="clears()">Clear</button>
+
+                </form>
+            </div>
+            <div class="second">
+                <h1>Enrolled Students</h1>
+                <div class="heading">
+                    <div class="description">Description</div>
+                    <div class="image">Image</div>
+                </div>>
+            </div>
+        </div>
+        <div class="bottom">Copyright 2020-2021 by Fresher Training</div>
+    </div>
+
+    <script src="form.js"></script>
+</body>
+</html>
