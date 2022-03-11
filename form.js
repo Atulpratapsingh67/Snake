@@ -6,10 +6,11 @@ let gender = document.getElementsByName("gender");
 let skills = document.getElementsByName("Skills");
 let form = document.querySelector(".enrollment");
 let second = document.querySelector(".second");
-let scroll = document.querySelector(".scroll");
-
+let add = document.querySelector(".add");
+let contant = document.querySelector(".contant");
 let gender_label = document.querySelectorAll(".gender");
-//second.innerHTML+=`<div class=\"contant\"><div class=\"description2\"><p>${a}</p><p>email</p><p>website</p><p>link</p><p>gender</p><p>skills</p></div><div class=\"image2\"><img src=\"\" alt=\"Image\"></div></div>`
+let scroll = document.querySelector(".do");
+
 function clears(){
     names[0].value = '';
     email[0].value = '';
@@ -22,85 +23,88 @@ function clears(){
     }
 }
 
+console.log(names[0].classList);
+let counter = 0;
 form.addEventListener('submit' , e=>{
     e.preventDefault();
-    let name = form['name'].value;
-    let email = form['email'].value;
-    let website = form['Website'].value;
-    let link = form['link'].value;
-    let gender = form['gender'].value;
-    let java = form['Java'].checked;
-    let html = form['HTML'].checked;
-    let css = form['CSS'].checked;
-    let skills = [];
-    if(java) skills.push(' Java');
-    if(css) skills.push(' Css');
-    if(html) skills.push(' html');
-    second.innerHTML+=`<div class=\"contant\"><div class=\"description2\"><p>${name}</p><p>${gender}</p><p>${email}</p><p>${website}</p><p>${skills}</p></div><div class=\"image2\"><img src=\"${link}\" alt=\"Image\"></div></div>`;
-});
+    let name1 = form['name'].value;
+    let email1 = form['email'].value;
+    let website1 = form['Website'].value;
+    let link1 = form['link'].value;
+    let gender1 = form['gender'].value;
+    let java1 = form['Java'].checked;
+    let html1 = form['HTML'].checked;
+    let css1 = form['CSS'].checked;
+    let skills1 = [];
+    if(java1) skills1.push('JAVA');
+    if(css1) skills1.push('CSS');
+    if(html1) skills1.push('HTML');
+    let message = "Fill red fields correctly, Select a gender and appropriate skills."
 
+    let flag = false;
+    let namePattern = /^[a-zA-Z]*[a-zA-Z ]*[a-zA-Z]$/;
+    if(!namePattern.test(name1)){
+        flag = true;
+        names[0].classList="rounded border border-danger";
+    }
 
+    let emailPattern = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
+    if(!emailPattern.test(email1)){
+        flag = true;
+        email[0].classList="rounded border border-danger";
+    }
 
+    let linkPattern = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
+    if(!linkPattern.test(website1)){
+        flag = true;
+        website[0].classList="rounded border border-danger";
+    }
+    if(!linkPattern.test(link1)){
+        flag = true;
+        link[0].classList="rounded border border-danger";
+    }
 
+    if(!gender1)
+    {
+        flag=true;
+    }
 
+    if(skills1.length == 0){
+        flag = true;
+    }
 
-names[0].addEventListener('input',()=>{
-    let x = names[0].value;
-    let pattern = /^[A-Za-z]+$/
-    if(pattern.test(x)){
-        names[0].classList='';
+    if(flag){
+        alert(message);
     }
     else{
-        names[0].classList='border';
+
+        names[0].classList="rounded border-secondary";
+        email[0].classList="rounded border-secondary";
+        website[0].classList="rounded border-secondary";
+        link[0].classList="rounded border-secondary";
+
+        if(counter !=0){add.childNodes[0].classList.remove('fadein');}
+        add.innerHTML=`<div class="row g-0 justify-content-center fadein">\
+                        <div class="col-6">\
+                            <div class="description2">\
+                                <p>${name1}</p>\
+                                <p>${gender1}</p>\
+                                <p>${email1}</p>\
+                                <a href="${website1}" target="_blank">${website1}</a>\
+                                <p>${skills1}</p>\
+                            </div>\
+                        </div>\
+                        <div class="col-3 ">\
+                            <div class="image2">\
+                                <img src="${link1}" alt="Image Not Found">\
+                            </div>\
+                        </div>\
+                    </div>`+ add.innerHTML;
+        counter+=1;
+    
+        if(counter>2){
+            scroll.classList.add("scroll");
+        }
     }
+
 });
-email[0].addEventListener('input',()=>{
-    let x = email[0].value;
-    let pattern = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/
-    if(pattern.test(x)){
-        email[0].classList='';
-    }
-    else{
-        email[0].classList='border';
-    }
-});
-// website[0].addEventListener('input',()=>{
-//     let x = email[0].value;
-//     let pattern = /^((ftp|http|https):\/\/)?(www.)?(?!.*(ftp|http|https|www.))[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+((\/)[\w#]+)*(\/\w+\?[a-zA-Z0-9_]+=\w+(&[a-zA-Z0-9_]+=\w+)*)?$/gm;
-//     if(pattern.test(x)){
-//         website[0].classList='';
-//     }
-//     else{
-//         website[0].classList='border';
-//     }
-// });
-// link[0].addEventListener('input',()=>{
-//     console.log(link[0].value);
-// });
-
-
-//Gender Validation
-// let flag = false;
-// gender[0].addEventListener('input' , ()=>{
-//     flag = gender[0].checked;
-//     if(!flag){
-//         gender_label[0].classList = 'color';
-//         gender_label[1].classList = 'color';
-//     }
-//     else{
-//         gender_label[0].classList = '';
-//         gender_label[1].classList = '';
-//     }
-// });
-// gender[1].addEventListener('input' , ()=>{
-//     flag = gender[1].checked;
-//     if(!flag){
-//         gender_label[0].classList = 'color';
-//         gender_label[1].classList = 'color';
-//     }
-//     else{
-//         gender_label[0].classList = '';
-//         gender_label[1].classList = '';
-//     }
-// });
-
