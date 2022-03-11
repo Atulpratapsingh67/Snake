@@ -1,29 +1,39 @@
+/*Resetting margin and padding for all elements*/
 * {
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
 }
+h3{
+    font-size: 2vw;
+}
 
+/*Main page to take whole viewport height*/
 .main{
     height: 100vh;
 }
 
+/*Main heading*/
 .top{
     background-color: rgb(123, 231, 210);
-    font-size:5vh;
-    height: 10vh;
+    font-size:5vw;
     color: white;
 }
 .top p{
     font-weight: 600;
 }
 
-.bottom{
-    height: 5vh;
+/*Footer*/
+footer{
     background-color: rgb(123, 231, 210);
     color: white;
-    font-size: 3vh;
+    font-size: 1vw;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
+
+/*Table heading*/
 .description{
     background-color: rgb(166, 209, 66);
     border: 2px solid green;
@@ -39,6 +49,13 @@
     font-weight: 700;
 }
 
+/*Table rows*/
+
+/*Whole component*/
+.add{
+    height: 300px; 
+}
+/*Description part*/
 .description2{
     background-color: rgb(231, 252, 193);
     border: 2px solid green;
@@ -50,6 +67,8 @@
     padding: 0;
     margin: 0;
 }
+
+/*Image Part*/
 .image2{
     border: 2px solid green;
     border-left: 0px;
@@ -58,19 +77,18 @@
     overflow: hidden;
 
 }
-
 img {
     display: block;
     margin: auto;
 }
-.add{
-    height: 300px; 
-}
 
+
+/*Scroller on y axis*/
 .scroll{
     overflow-y: scroll;
 }
 
+/*FadeIn effect for newly added rows*/
 .fadein{
     animation-name: fade;
     animation-duration: 4s;
@@ -79,3 +97,10 @@ img {
     from {opacity: 0;}
     to {opacity: 1;}
 }
+
+
+/*Buttons*/
+.btn{
+    font-size: 1.5vw;
+}
+
